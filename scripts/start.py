@@ -37,3 +37,14 @@
 # Example 2
 # > paper
 # Sorry, but the computer chose scissors
+
+userOption = str(input())
+
+if userOption == 'rock':
+    unfairOption = 'paper'
+elif userOption == 'scissors':
+    unfairOption = 'rock'
+else:
+    unfairOption = 'scissors'
+
+print('Sorry, but the computer chose {}'.format(unfairOption))
