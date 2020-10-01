@@ -6,3 +6,6 @@ If you’ve ever wanted to create games, this project will get you started! In t
 
 ### Learning outcomes
 A playable Rock-Paper-Scissors game, with a Player vs Computer mode. Practice using arrays, the Random library, formatted strings, and algorithms.
+
+### Stage 1/5: Unfair computer
+Before learning how to play the game properly, let’s learn how to cheat! Using conditional statements, you’ll write a program that always defeats the human player in the Rock-Paper-Scissors game.
