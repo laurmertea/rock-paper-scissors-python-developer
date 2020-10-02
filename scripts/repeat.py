@@ -40,3 +40,47 @@
 # Invalid input
 # > !exit
 # Bye!
+
+import sys
+import random
+
+def get_option():
+    allowed = False
+
+    while not allowed:
+        user_option = str(input())
+        if user_option in allowed_shapes:
+            allowed = True
+            return user_option
+        else:
+            if user_option == '!exit':
+                sys.exit('Bye!')
+            else:
+                print('Invalid input')
+
+allowed_commands = ['!exit']
+allowed_shapes = ['rock', 'paper', 'scissors']
+repeat = True
+
+while repeat == True:
+    user_option = get_option()
+    computer_shape = random.choice(allowed_shapes)
+    
+    if user_option == computer_shape:
+        print('There is a draw ({})'.format(user_option))
+    else:
+        if user_option == 'rock':
+            if computer_shape == 'paper':
+                print('Sorry, but the computer chose {}'.format(computer_shape))
+            else:
+                print('Well done. The computer chose {} and failed'.format(computer_shape))
+        elif user_option == 'paper':
+            if computer_shape == 'scissors':
+                print('Sorry, but the computer chose {}'.format(computer_shape))
+            else:
+                print('Well done. The computer chose {} and failed'.format(computer_shape))
+        else:
+            if computer_shape == 'rock':
+                print('Sorry, but the computer chose {}'.format(computer_shape))
+            else:
+                print('Well done. The computer chose {} and failed'.format(computer_shape))
