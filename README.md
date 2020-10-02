@@ -12,3 +12,6 @@ Before learning how to play the game properly, let’s learn how to cheat! Using
 
 ### Stage 2/5: Equalizing chances
 Let’s not mess with the player too much, though: from now on, we’re going to play fair. You’ll be able to do this with the help of the random module, while string formatting will assist you in announcing the end result of the game. 
+
+### Stage 3/5: Endless game
+Can’t stop, won’t stop! A single game is never enough. Learn about loops in Python and apply them to make multiple game rounds possible. 
