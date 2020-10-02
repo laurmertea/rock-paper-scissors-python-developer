@@ -32,3 +32,33 @@
 # Example 3
 # > paper
 # Sorry, but the computer chose scissors
+
+import random
+
+allowed_shapes = ['rock', 'paper', 'scissors']
+computer_shape = random.choice(allowed_shapes)
+allowed = False
+
+while not allowed:
+    user_shape = str(input())
+    if user_shape in allowed_shapes:
+        allowed = True
+
+if user_shape == computer_shape:
+    print('There is a draw ({})'.format(user_shape))
+else:
+    if user_shape == 'rock':
+        if computer_shape == 'paper':
+            print('Sorry, but the computer chose {}'.format(computer_shape))
+        else:
+            print('Well done. The computer chose {} and failed'.format(computer_shape))
+    elif user_shape == 'paper':
+        if computer_shape == 'scissors':
+            print('Sorry, but the computer chose {}'.format(computer_shape))
+        else:
+            print('Well done. The computer chose {} and failed'.format(computer_shape))
+    else:
+        if computer_shape == 'rock':
+            print('Sorry, but the computer chose {}'.format(computer_shape))
+        else:
+            print('Well done. The computer chose {} and failed'.format(computer_shape))
