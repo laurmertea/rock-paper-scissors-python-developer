@@ -132,6 +132,7 @@ dmypy.json
 .pyre/
 
 # Notes
+/notes
 notes.md
 
 # Tests
