@@ -15,3 +15,6 @@ Let’s not mess with the player too much, though: from now on, we’re going to
 
 ### Stage 3/5: Endless game
 Can’t stop, won’t stop! A single game is never enough. Learn about loops in Python and apply them to make multiple game rounds possible. 
+
+### Stage 4/5: Scoring the game
+It’s time to find out who the best Rock-Paper-Scissors player is! You are going to need the basics of file handling to read the records of the results of previous games, as well as tally the user’s score in the current game. 
