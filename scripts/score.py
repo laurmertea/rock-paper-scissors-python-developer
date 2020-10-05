@@ -73,3 +73,101 @@
 # Your rating: 250
 # > !exit
 # Bye!
+
+import sys
+import random
+
+def get_score(name, filepath):
+    score = 0
+    rating_file = open(filepath, "r")
+    line_index = -1
+
+    for line in rating_file:
+        rating = line.split()
+        if rating[0] == name:
+            rating_file.close()
+            return [int(rating[1]), line_index + 1]
+    rating_file.close()    
+    return [score, line_index]
+
+def update_score(name, new_score, filepath):
+    rating_file = open(filepath, "r")
+    scores = rating_file.readlines()
+    rating_file.close()    
+
+    score = get_score(name, filepath)
+    rating_file = open(filepath, "w")
+    print(score[1])
+    if score[1] == -1:
+        scores.append(new_score)
+    else:
+        scores[score[1]] = new_score
+    print(scores)
+    rating_file.writelines(scores)
+    rating_file.close()
+
+def finish_game(name, outcome, score, computer_shape, filepath):
+    ratings_file_open = open(filepath, "a")
+
+    if outcome == 'draw':
+        print('There is a draw ({})'.format(user_option))
+        update_score(name, '{} {}\n'.format(name, score + 50), filepath)
+    elif outcome == 'won':
+        print('Well done. The computer chose {} and failed'.format(computer_shape))
+        update_score(name, '{} {}\n'.format(name, score + 100), filepath)
+    else:
+        print('Sorry, but the computer chose {}'.format(computer_shape))
+
+    ratings_file_open.close()
+
+def get_option(name, filepath):
+    allowed = False
+
+    while not allowed:
+        user_option = str(input())
+        if user_option in allowed_shapes:
+            allowed = True
+            return user_option
+        else:
+            if user_option == '!exit':
+                sys.exit('Bye!')
+            elif user_option == '!rating':
+                print('Your rating: {}'.format(get_score(name, filepath)[0]))
+            else:
+                print('Invalid input')
+
+name = input("Enter your name: ")
+print('Hello, {}'.format(name))
+
+ratings_file = "rating.txt"
+
+allowed_commands = ['!rating', '!exit']
+allowed_shapes = ['rock', 'paper', 'scissors']
+repeat = True
+
+while repeat == True:
+    score = get_score(name, ratings_file)[0]
+    user_option = get_option(name, ratings_file)
+    computer_shape = random.choice(allowed_shapes)
+    outcome = False
+    
+    if user_option == computer_shape:
+        outcome = 'draw'
+    else:
+        if user_option == 'rock':
+            if computer_shape == 'paper':
+                outcome = 'lost'
+            else:
+                outcome = 'won'
+        elif user_option == 'paper':
+            if computer_shape == 'scissors':
+                outcome = 'lost'
+            else:
+                outcome = 'won'
+        else:
+            if computer_shape == 'rock':
+                outcome = 'lost'
+            else:
+                outcome = 'won'
+    
+    finish_game(name, outcome, score, computer_shape, ratings_file)
