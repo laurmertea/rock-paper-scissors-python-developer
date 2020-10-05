@@ -18,3 +18,6 @@ Can’t stop, won’t stop! A single game is never enough. Learn about loops in 
 
 ### Stage 4/5: Scoring the game
 It’s time to find out who the best Rock-Paper-Scissors player is! You are going to need the basics of file handling to read the records of the results of previous games, as well as tally the user’s score in the current game. 
+
+### Stage 5/5: More options
+Let's raise the stakes, shall we? In the final stage of the project, your program will let the player choose what options will be used in the game and how many of them will be there. This will require some more advanced knowledge about lists in Python.
